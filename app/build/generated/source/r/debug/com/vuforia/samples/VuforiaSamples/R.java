@@ -81,11 +81,12 @@ public final class R {
         public static final int camera_overlay=0x7f030003;
         public static final int camera_overlay_textreco=0x7f030004;
         public static final int camera_overlay_udt=0x7f030005;
-        public static final int sample_app_menu_group=0x7f030006;
-        public static final int sample_app_menu_group_divider=0x7f030007;
-        public static final int sample_app_menu_group_radio_button=0x7f030008;
-        public static final int sample_app_menu_layer=0x7f030009;
-        public static final int splash_screen=0x7f03000a;
+        public static final int open_gles_actitivity=0x7f030006;
+        public static final int sample_app_menu_group=0x7f030007;
+        public static final int sample_app_menu_group_divider=0x7f030008;
+        public static final int sample_app_menu_group_radio_button=0x7f030009;
+        public static final int sample_app_menu_layer=0x7f03000a;
+        public static final int splash_screen=0x7f03000b;
     }
     public static final class string {
         public static final int INIT_ERROR=0x7f070000;
