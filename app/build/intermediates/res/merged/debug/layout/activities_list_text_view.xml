@@ -10,4 +10,4 @@
     android:paddingTop="@dimen/menu_activities_list_padding_top_down"
     android:paddingBottom="@dimen/menu_activities_list_padding_top_down"
 />
-<!-- From: file:/Users/julianahlers/Documents/Development/Android/vuforia-sdk-android-5-5-9/samples/VuforiaSamples-5-5-9/app/src/main/res/layout/activities_list_text_view.xml -->
+<!-- From: file:/Users/julianahlers/Documents/Development/Android/vuforia-sdk-android-5-5-9/samples/State_Visualisation/app/src/main/res/layout/activities_list_text_view.xml -->
