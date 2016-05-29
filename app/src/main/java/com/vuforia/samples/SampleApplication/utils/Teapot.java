@@ -33,7 +33,7 @@ public class Teapot extends MeshObject
     }
 
 // BASE OBJECT (GREEN) //
-
+// TEST
     private void setVerts()
     {
         double[] BASE_GREEN_Verts = {
