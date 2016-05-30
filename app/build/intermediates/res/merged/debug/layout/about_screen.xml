@@ -35,4 +35,4 @@
         android:layout_above="@id/button_start"
         />
         
-</RelativeLayout>
+</RelativeLayout><!-- From: file:/Users/julianahlers/Documents/Development/Android/vuforia-sdk-android-5-5-9/samples/State_Visualisation/app/src/main/res/layout/about_screen.xml -->

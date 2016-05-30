@@ -256,9 +256,10 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer
                     modelViewProjection, 0);
                 
                 // finally draw the teapot
-                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                /*GLES20.glDrawElements(GLES20.GL_TRIANGLES,
                     mTeapot.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
-                    mTeapot.getIndices());
+                    mTeapot.getIndices());*/
+                GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mTeapot.getNumObjectVertex());
                 
                 // disable the enabled arrays
                 GLES20.glDisableVertexAttribArray(vertexHandle);

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/julianahlers/Documents/Development/Android/vuforia-sdk-android-5-5-9/samples/State_Visualisation/app/src/main/res/values-mdpi/dimens.xml -->
+    <eat-comment/>
+    <dimen name="menu_entries_text">20sp</dimen>
+    <dimen name="menu_entries_title">16sp</dimen>
+</resources>
