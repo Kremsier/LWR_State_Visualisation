@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/VuforiaSamples-5-5-9.iml" filepath="$PROJECT_DIR$/VuforiaSamples-5-5-9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/State_Visualisation.iml" filepath="$PROJECT_DIR$/State_Visualisation.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

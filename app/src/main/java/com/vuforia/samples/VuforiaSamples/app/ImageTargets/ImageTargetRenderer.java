@@ -9,12 +9,6 @@ countries.
 
 package com.vuforia.samples.VuforiaSamples.app.ImageTargets;
 
-import java.io.IOException;
-import java.util.Vector;
-
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
@@ -35,6 +29,12 @@ import com.vuforia.samples.SampleApplication.utils.SampleApplication3DModel;
 import com.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.vuforia.samples.SampleApplication.utils.Teapot;
 import com.vuforia.samples.SampleApplication.utils.Texture;
+
+import java.io.IOException;
+import java.util.Vector;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
 
 
 // The renderer class for the ImageTargets sample. 
@@ -214,13 +214,14 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer
             
             if (!mActivity.isExtendedTrackingActive())
             {
-                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 100.0f,
                     OBJECT_SCALE_FLOAT);
+                Matrix.rotateM(modelViewMatrix, 0, -90.0f, 1.0f, 0.0f, 0.0f);
                 Matrix.scaleM(modelViewMatrix, 0, OBJECT_SCALE_FLOAT,
                     OBJECT_SCALE_FLOAT, OBJECT_SCALE_FLOAT);
             } else
             {
-                Matrix.rotateM(modelViewMatrix, 0, 90.0f, 1.0f, 0, 0);
+                Matrix.rotateM(modelViewMatrix, 0, 90.0f, 1.0f, 0.0f, 0.0f);
                 Matrix.scaleM(modelViewMatrix, 0, kBuildingScale,
                     kBuildingScale, kBuildingScale);
             }

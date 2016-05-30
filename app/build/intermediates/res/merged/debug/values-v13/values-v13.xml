@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/julianahlers/Documents/Development/Android/vuforia-sdk-android-5-5-9/samples/VuforiaSamples-5-5-9/app/src/main/res/values-v13/styles.xml -->
-    <eat-comment/>
     <style name="SampleAppsTheme" parent="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
         <item name="android:windowNoTitle">true</item>
     </style>
