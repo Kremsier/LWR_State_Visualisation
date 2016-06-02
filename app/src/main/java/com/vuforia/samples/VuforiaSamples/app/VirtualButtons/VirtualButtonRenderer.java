@@ -9,14 +9,6 @@ countries.
 
 package com.vuforia.samples.VuforiaSamples.app.VirtualButtons;
 
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.util.Vector;
-
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
@@ -39,6 +31,14 @@ import com.vuforia.samples.SampleApplication.utils.LineShaders;
 import com.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.vuforia.samples.SampleApplication.utils.Teapot;
 import com.vuforia.samples.SampleApplication.utils.Texture;
+
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Vector;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
 
 
 public class VirtualButtonRenderer implements GLSurfaceView.Renderer
@@ -211,6 +211,10 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             TrackableResult trackableResult = state.getTrackableResult(0);
             float[] modelViewMatrix = Tool.convertPose2GLMatrix(
                 trackableResult.getPose()).getData();
+
+            Matrix.translateM(modelViewMatrix, 0, 0.0f, 100.0f,
+                    0.0f);
+            Matrix.rotateM(modelViewMatrix, 0, -90.0f, 1.0f, 0.0f, 0.0f);
             
             // The image target specific result:
             assert (trackableResult.getType() == ImageTargetResult

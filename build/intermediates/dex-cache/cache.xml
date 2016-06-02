@@ -1,26 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        revision="22.0.1"
-        sha1="70ee6a80ef6051b0350eaf341b1223855049a563">
-        <dex dex="C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ca14d82f037ad04c2c81eeb0ea72ee7b099809c3\classes.dex" />
-    </item>
-    <item
-        jar="C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="22.0.1"
-        sha1="8adcff4dba219f5bda716546ae3d0d2f493f26cb">
-        <dex dex="C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_99c7a22cfeec42c4fe9e6aca6f3435e1211a06d3\classes.dex" />
-    </item>
-    <item
-        jar="C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\build\java\vuforia\Vuforia.jar"
-        jumboMode="true"
-        revision="22.0.1"
-        sha1="f5b9729417d9e86d9bba6068e4a84f05ace53fd4">
-        <dex dex="C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\build\intermediates\transforms\dex\debug\folders\1000\2\Vuforia_40fa876dd1ad183ff8e31984bbba2140aa8d48e2\classes.dex" />
-    </item>
-
-</items>
