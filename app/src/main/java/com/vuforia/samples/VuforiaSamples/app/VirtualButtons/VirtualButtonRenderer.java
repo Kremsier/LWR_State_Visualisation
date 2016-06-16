@@ -279,14 +279,22 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 // If the button is pressed, than use this texture:
                 if (buttonResult.isPressed())
                 {
+                    int light =0;
                     if(isSet == false){
                         a++;
-                        if(a>1){
+                        if(a>200){
                             a=0;
+                        }
+                        if(a>100) {
+                            light = 0;
+                        }
+                        else
+                        {
+                            light = 1;
                         }
                     }
 
-                    switch (a)
+                    switch (light)
                     {
                         case 0:
                             mActivity.virtualButtonColors[1] = "red";
