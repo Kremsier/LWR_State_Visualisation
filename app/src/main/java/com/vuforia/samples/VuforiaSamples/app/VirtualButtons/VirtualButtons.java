@@ -10,8 +10,6 @@ countries.
 
 package com.vuforia.samples.VuforiaSamples.app.VirtualButtons;
 
-import java.util.Vector;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -33,8 +31,8 @@ import com.vuforia.DataSet;
 import com.vuforia.ImageTarget;
 import com.vuforia.ObjectTracker;
 import com.vuforia.Rectangle;
-import com.vuforia.State;
 import com.vuforia.STORAGE_TYPE;
+import com.vuforia.State;
 import com.vuforia.Trackable;
 import com.vuforia.Tracker;
 import com.vuforia.TrackerManager;
@@ -50,6 +48,8 @@ import com.vuforia.samples.VuforiaSamples.R;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
+
+import java.util.Vector;
 
 
 // The main activity for the VirtualButtons sample. 
@@ -165,7 +165,7 @@ public class VirtualButtons extends Activity implements
     // for rendering.
     private void loadTextures()
     {
-        mTextures.add(Texture.loadTextureFromApk("TextureTeapotBrass.png",
+        mTextures.add(Texture.loadTextureFromApk("Base White w white background.png",
             getAssets()));
         mTextures.add(Texture.loadTextureFromApk("TextureTeapotRed.png",
             getAssets()));
@@ -284,7 +284,7 @@ public class VirtualButtons extends Activity implements
             null, false);
         
         mUILayout.setVisibility(View.VISIBLE);
-        mUILayout.setBackgroundColor(Color.BLACK);
+        mUILayout.setBackgroundColor(Color.GRAY);
         
         // Gets a reference to the loading dialog
         loadingDialogHandler.mLoadingDialogContainer = mUILayout
@@ -675,7 +675,7 @@ public class VirtualButtons extends Activity implements
             Log.d(LOGTAG, "Failed to load data set.");
             return false;
         }
-        
+
         // Activate the data set:
         if (!objectTracker.activateDataSet(dataSet))
         {

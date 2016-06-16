@@ -30,6 +30,7 @@ import com.vuforia.samples.SampleApplication.utils.CubeShaders;
 import com.vuforia.samples.SampleApplication.utils.LineShaders;
 import com.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.vuforia.samples.SampleApplication.utils.Teapot;
+import com .vuforia.samples.SampleApplication.utils.FirstSegment;
 import com.vuforia.samples.SampleApplication.utils.Texture;
 
 import java.nio.Buffer;
@@ -54,6 +55,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     private Vector<Texture> mTextures;
     
     private Teapot mTeapot = new Teapot();
+    private FirstSegment mFirstSegment = new FirstSegment();
     
     // OpenGL ES 2.0 specific (3D model):
     private int shaderProgramID = 0;
@@ -70,11 +72,18 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     // OpenGL ES 2.0 specific (Virtual Buttons):
     private int vbShaderProgramID = 0;
     private int vbVertexHandle = 0;
+    private int a = 0;                          //zu Testzwecken hinzugefügt
+    private boolean isSet = false;
     
     // Constants:
     static private float kTeapotScale = 3.f;
-    
-    
+    static private float kFirstSegmentScale = 3.f;
+
+    private double prevTime;
+    private float rotateBallAngle;
+
+
+
     public VirtualButtonRenderer(VirtualButtons activity,
         SampleApplicationSession session)
     {
@@ -212,9 +221,9 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             float[] modelViewMatrix = Tool.convertPose2GLMatrix(
                 trackableResult.getPose()).getData();
 
-            Matrix.translateM(modelViewMatrix, 0, 0.0f, 100.0f,
-                    0.0f);
-            Matrix.rotateM(modelViewMatrix, 0, -90.0f, 1.0f, 0.0f, 0.0f);
+            Matrix.translateM(modelViewMatrix, 0, -105.0f, 278.0f,
+                    3.0f);
+            Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
             
             // The image target specific result:
             assert (trackableResult.getType() == ImageTargetResult
@@ -225,7 +234,22 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             float[] modelViewProjection = new float[16];
             Matrix.multiplyMM(modelViewProjection, 0, vuforiaAppSession
                 .getProjectionMatrix().getData(), 0, modelViewMatrix, 0);
-            
+
+
+            //modelViewMatrix for FirstSegment
+            /*float[] modelViewMatrix2 = Tool.convertPose2GLMatrix(
+                    trackableResult.getPose()).getData();
+
+            Matrix.translateM(modelViewMatrix2, 0, 0.0f, 0.0f,
+                    3.0f);
+            Matrix.rotateM(modelViewMatrix2, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+            float[] modelViewProjection2 = new float[16];
+            Matrix.multiplyMM(modelViewProjection2, 0, vuforiaAppSession
+                    .getProjectionMatrix().getData(), 0, modelViewMatrix2, 0);*/
+            //end FirstSegment
+
+
             // Set the texture used for the teapot model:
             int textureIndex = 0;
             
@@ -255,7 +279,31 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 // If the button is pressed, than use this texture:
                 if (buttonResult.isPressed())
                 {
+                    if(isSet == false){
+                        a++;
+                        if(a>1){
+                            a=0;
+                        }
+                    }
+
+                    switch (a)
+                    {
+                        case 0:
+                            mActivity.virtualButtonColors[1] = "red";
+                            break;
+
+                        case 1:
+                            mActivity.virtualButtonColors[1] = "blue";
+                            break;
+
+                    }
+                    isSet = true;
+
                     textureIndex = buttonIndex + 1;
+
+                }
+                else{
+                    isSet = false;
                 }
                 
                 Area vbArea = button.getArea();
@@ -386,6 +434,66 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             GLES20.glDisableVertexAttribArray(vertexHandle);
             GLES20.glDisableVertexAttribArray(normalHandle);
             GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+
+            animateObject(modelViewMatrix);
+
+            Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                    100.0f);
+            Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+            //second Object
+            //Matrix.scaleM(modelViewScaled, 0, kFirstSegmentScale, kFirstSegmentScale, kFirstSegmentScale);
+            Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                    .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+            GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                    false, 0, mFirstSegment.getVertices());
+            GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                    false, 0, mFirstSegment.getNormals());
+            GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                    GLES20.GL_FLOAT, false, 0, mFirstSegment.getTexCoords());
+
+            GLES20.glEnableVertexAttribArray(vertexHandle);
+            GLES20.glEnableVertexAttribArray(normalHandle);
+            GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+            GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                    thisTexture.mTextureID[0]);
+            GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                    modelViewProjectionScaled, 0);
+            GLES20.glUniform1i(texSampler2DHandle, 0);
+            GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                    mFirstSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                    mFirstSegment.getIndices());
+
+            GLES20.glDisableVertexAttribArray(vertexHandle);
+            GLES20.glDisableVertexAttribArray(normalHandle);
+            GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+            //https://developer.vuforia.com/forum/qcar-api/multiple-teapots-one-image-target
+            /*modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
+
+            obj3D = [objects3D objectAtIndex:2];
+            ShaderUtils::translatePoseMatrix(10.0f, 0.0f, kObjectScale, &modelViewMatrix.data[0]);
+            ShaderUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale, &modelViewMatrix.data[0]);
+            ShaderUtils::multiplyMatrix(&qUtils.projectionMatrix.data[0], &modelViewMatrix.data[0], &modelViewProjection.data[0]);
+
+            glUseProgram(shaderProgramID);
+
+            glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.vertices);
+            glVertexAttribPointer(normalHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.normals);
+            glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.texCoords);
+
+            glEnableVertexAttribArray(vertexHandle);
+            glEnableVertexAttribArray(normalHandle);
+            glEnableVertexAttribArray(textureCoordHandle);
+
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
+            glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
+            glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);*/
             
             SampleUtils.checkGLError("VirtualButtons renderFrame");
             
@@ -396,7 +504,19 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
         Renderer.getInstance().end();
         
     }
-    
+
+    private void animateObject(float[] modelViewMatrix)
+    {
+        double time = System.currentTimeMillis();             // Get real time difference
+        float dt = (float) (time - prevTime) / 1000;          // from frame to frame
+
+        rotateBallAngle += dt * 180.0f / 3.1415f;     // Animate angle based on time
+        rotateBallAngle %= 360;
+
+        Matrix.rotateM(modelViewMatrix, 0, rotateBallAngle, 0.0f, 0.0f, 1.0f);
+
+        prevTime = time;
+    }
     
     private Buffer fillBuffer(float[] array)
     {

@@ -214,7 +214,7 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer
             
             if (!mActivity.isExtendedTrackingActive())
             {
-                Matrix.translateM(modelViewMatrix, 0, 0.0f, 100.0f,
+                Matrix.translateM(modelViewMatrix, 0, -105.0f, 278.0f,
                     OBJECT_SCALE_FLOAT);
                 Matrix.rotateM(modelViewMatrix, 0, -90.0f, 1.0f, 0.0f, 0.0f);
                 Matrix.scaleM(modelViewMatrix, 0, OBJECT_SCALE_FLOAT,

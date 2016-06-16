@@ -10,9 +10,6 @@ countries.
 
 package com.vuforia.samples.VuforiaSamples.app.ImageTargets;
 
-import java.util.ArrayList;
-import java.util.Vector;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -37,8 +34,8 @@ import android.widget.Toast;
 import com.vuforia.CameraDevice;
 import com.vuforia.DataSet;
 import com.vuforia.ObjectTracker;
-import com.vuforia.State;
 import com.vuforia.STORAGE_TYPE;
+import com.vuforia.State;
 import com.vuforia.Trackable;
 import com.vuforia.Tracker;
 import com.vuforia.TrackerManager;
@@ -53,6 +50,9 @@ import com.vuforia.samples.VuforiaSamples.R;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
+
+import java.util.ArrayList;
+import java.util.Vector;
 
 
 public class ImageTargets extends Activity implements SampleApplicationControl,
@@ -111,6 +111,7 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
         startLoadingAnimation();
         mDatasetStrings.add("StonesAndChips.xml");
         mDatasetStrings.add("Tarmac.xml");
+        mDatasetStrings.add("Test.xml");
 
         vuforiaAppSession
             .initAR(this, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -168,14 +169,24 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
     
     private void loadTextures()
     {
-        mTextures.add(Texture.loadTextureFromApk("TextureTeapotBrass.png",
+
+        mTextures.add(Texture.loadTextureFromApk("Base White w white background.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("Base White w white background.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("Base White w white background.png",
             getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("Base White w white background.png",
+                getAssets()));
+
+/*        mTextures.add(Texture.loadTextureFromApk("TextureTeapotBrass.png",
+                getAssets()));
         mTextures.add(Texture.loadTextureFromApk("TextureTeapotBlue.png",
-            getAssets()));
+                getAssets()));
         mTextures.add(Texture.loadTextureFromApk("TextureTeapotRed.png",
-            getAssets()));
+                getAssets()));
         mTextures.add(Texture.loadTextureFromApk("ImageTargets/Buildings.jpeg",
-            getAssets()));
+                getAssets()));*/
     }
     
     
