@@ -82,8 +82,6 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     // OpenGL ES 2.0 specific (Virtual Buttons):
     private int vbShaderProgramID = 0;
     private int vbVertexHandle = 0;
-    private int a = 0;                          //zu Testzwecken hinzugefügt
-    private boolean isSet = false;
 
     // Constants:
     static private float kTeapotScale = 1.f;
@@ -96,6 +94,10 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     private boolean button1Hold;
     private boolean button2Set;
     private boolean button2Hold;
+    private boolean button3Set;
+    private boolean button3Hold;
+    private boolean button4Set;
+    private boolean button4Hold;
     private int showNextObject = 0;
 
 
@@ -295,42 +297,11 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 }
 
                 // If the button is pressed, than use this texture:
-                if (buttonResult.isPressed())
+                /*if (buttonResult.isPressed())
                 {
-                    int light =0;
-                    if(isSet == false){
-                        a++;
-                        if(a>200){
-                            a=0;
-                        }
-                        if(a>100) {
-                            light = 0;
-                        }
-                        else
-                        {
-                            light = 1;
-                        }
-                    }
+                   textureIndex = buttonIndex + 1;
 
-                    switch (light)
-                    {
-                        case 0:
-                            mActivity.virtualButtonColors[1] = "red";
-                            break;
-
-                        case 1:
-                            mActivity.virtualButtonColors[1] = "blue";
-                            break;
-
-                    }
-                    isSet = true;
-
-                    textureIndex = buttonIndex + 1;
-
-                }
-                else{
-                    isSet = false;
-                }
+                }*/
 
                 Area vbArea = button.getArea();
                 assert (vbArea.getType() == Area.TYPE.RECTANGLE);
@@ -437,6 +408,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             // END OF CHANGE
 
             // Assumptions:
+            //textureIndex = 0;
             assert (textureIndex < mTextures.size());
             Texture thisTexture = mTextures.get(textureIndex);
 
@@ -477,8 +449,68 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             GLES20.glDisableVertexAttribArray(normalHandle);
             GLES20.glDisableVertexAttribArray(textureCoordHandle);
 
+            //Virtual Button3 will change the color of robot
+            VirtualButtonResult buttonResult3 = imageTargetResult.getVirtualButtonResult(2);
 
+            if(button3Set == false && button3Hold == false){
+                if (buttonResult3.isPressed()) {
+                    button3Set = true;
+                    textureIndex = 0;
+                }
+            }
 
+            if(button3Set == true && button3Hold == false){
+                if (!buttonResult3.isPressed()) {
+                    button3Set = false;
+                    button3Hold = true;
+                }
+            }
+
+            if(button3Set == false && button3Hold == true && showNextObject == 0)
+            {
+                if (buttonResult3.isPressed()) {
+                    button3Set = true;
+                    button3Hold = false;
+                    textureIndex = 1;
+                }
+            }
+
+            if(button3Set == false && button3Hold == true && showNextObject == 1)
+            {
+                if (buttonResult3.isPressed()) {
+                    button3Set = true;
+                    button3Hold = false;
+                    textureIndex = 2;
+                }
+            }
+
+            if(button3Set == false && button3Hold == true && showNextObject == 2)
+            {
+                if (buttonResult3.isPressed()) {
+                    button3Set = true;
+                    button3Hold = false;
+                    textureIndex = 3;
+                }
+            }
+            if(button3Set == false && button3Hold == true && showNextObject == 3)
+            {
+                if (buttonResult3.isPressed()) {
+                    button3Set = true;
+                    button3Hold = false;
+                    textureIndex = 4;
+                }
+            }
+
+            if(button3Set == false && button3Hold == true && showNextObject == 4)
+            {
+                if (buttonResult3.isPressed()) {
+                    button3Set = true;
+                    button3Hold = false;
+                    textureIndex = 0;
+                }
+            }
+
+            //Button 1 and 2 will add and remove object to current robot
             VirtualButtonResult buttonResult1 = imageTargetResult.getVirtualButtonResult(0);
             VirtualButtonResult buttonResult2 = imageTargetResult.getVirtualButtonResult(1);
 
@@ -557,6 +589,9 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
 
             if(showNextObject == 1) {
+                assert (textureIndex < mTextures.size());
+                thisTexture = mTextures.get(textureIndex);
+
                 Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
                         100.0f);
 
@@ -606,6 +641,9 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
 
             if(showNextObject == 2) {
+                assert (textureIndex < mTextures.size());
+                thisTexture = mTextures.get(textureIndex);
+
                 Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
                         100.0f);
 
@@ -654,14 +692,6 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                         90.0f);
                 Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
 
-                //animateSecondObject(modelViewMatrix);
-                VirtualButtonResult buttonResult4 = imageTargetResult.getVirtualButtonResult(3);
-
-                if (buttonResult4.isPressed() == true){
-                    animateSecondObject(modelViewMatrix);
-                }
-
-
                 // Second Object
                 Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
                         .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
@@ -694,7 +724,11 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 GLES20.glDisableVertexAttribArray(textureCoordHandle);
             }
 
-
+            //animateSecondObject(modelViewMatrix);
+            VirtualButtonResult buttonResult4 = imageTargetResult.getVirtualButtonResult(3);
+            if (buttonResult4.isPressed() == true){
+                animateSecondObject(modelViewMatrix);
+            }
 
             //https://developer.vuforia.com/forum/qcar-api/multiple-teapots-one-image-target
             /*modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
