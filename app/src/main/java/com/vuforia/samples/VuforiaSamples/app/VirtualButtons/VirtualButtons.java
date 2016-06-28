@@ -165,7 +165,7 @@ public class VirtualButtons extends Activity implements
     // for rendering.
     private void loadTextures()
     {
-        mTextures.add(Texture.loadTextureFromApk("TextureTeapotBrass.png",
+        mTextures.add(Texture.loadTextureFromApk("white.png",
             getAssets()));
         mTextures.add(Texture.loadTextureFromApk("TextureTeapotRed.png",
             getAssets()));

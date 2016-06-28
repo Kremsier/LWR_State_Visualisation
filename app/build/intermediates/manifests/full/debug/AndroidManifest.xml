@@ -3,6 +3,7 @@
     package="com.vuforia.samples.VuforiaSamples"
     android:versionCode="200"
     android:versionName="5.0" >
+
     <!--
         The application's compatibility with one or more versions of the Android
         platform.
@@ -19,10 +20,13 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true" /> <!-- edited -->
+        android:required="true" />
+ <!-- edited -->
 
-    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" /> <!-- edited -->
-    <supports-gl-texture android:name="GL_OES_compressed_paletted_texture" /> <!-- edited -->
+    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
+ <!-- edited -->
+    <supports-gl-texture android:name="GL_OES_compressed_paletted_texture" />
+ <!-- edited -->
 
 
     <!--

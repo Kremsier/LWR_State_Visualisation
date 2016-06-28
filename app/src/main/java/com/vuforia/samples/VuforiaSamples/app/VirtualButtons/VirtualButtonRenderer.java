@@ -84,8 +84,9 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
     private double prevTime;
     private float rotateBallAngle;
-    private float rotateBackAngle;
-
+    private boolean button1Set = false;
+    private boolean button1Hold;
+    private boolean showNextObject;
 
 
     public VirtualButtonRenderer(VirtualButtons activity,
@@ -286,40 +287,9 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 // If the button is pressed, than use this texture:
                 if (buttonResult.isPressed())
                 {
-                    int light =0;
-                    if(isSet == false){
-                        a++;
-                        if(a>200){
-                            a=0;
-                        }
-                        if(a>100) {
-                            light = 0;
-                        }
-                        else
-                        {
-                            light = 1;
-                        }
-                    }
-
-                    switch (light)
-                    {
-                        case 0:
-                            mActivity.virtualButtonColors[1] = "red";
-                            break;
-
-                        case 1:
-                            mActivity.virtualButtonColors[1] = "blue";
-                            break;
-
-                    }
-                    isSet = true;
-
-                    textureIndex = buttonIndex + 1;
-
+                    //textureIndex = buttonIndex + 1;
                 }
-                else{
-                    isSet = false;
-                }
+
                 
                 Area vbArea = button.getArea();
                 assert (vbArea.getType() == Area.TYPE.RECTANGLE);
@@ -412,7 +382,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
             // CHANGE
             Matrix.translateM(modelViewMatrix, 0, -105.0f, 278.0f, 1.0f); // 105.0f, 278.0f, 3.0f
-            Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f); //
+            Matrix.rotateM(modelViewMatrix, 0, 0.0f, 0.0f, 0.0f, 0.0f); //
 
             // The image target specific result:
             assert (trackableResult.getType() == ImageTargetResult
@@ -427,6 +397,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
             // Assumptions:
             assert (textureIndex < mTextures.size());
+            textureIndex = 0;
             Texture thisTexture = mTextures.get(textureIndex);
             
             // Scale 3D model
@@ -451,7 +422,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             GLES20.glEnableVertexAttribArray(vertexHandle);
             GLES20.glEnableVertexAttribArray(normalHandle);
             GLES20.glEnableVertexAttribArray(textureCoordHandle);
-            
+
             GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
             GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
                 thisTexture.mTextureID[0]);
@@ -466,17 +437,87 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             GLES20.glDisableVertexAttribArray(normalHandle);
             GLES20.glDisableVertexAttribArray(textureCoordHandle);
 
+            VirtualButtonResult buttonResult1 = imageTargetResult.getVirtualButtonResult(0);
+            if(button1Set == false && button1Hold == false){
+                if (buttonResult1.isPressed()) {
+                    button1Set = true;
+                    showNextObject = true;
+                }
+            }
 
-            Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+            if(button1Set == true && button1Hold == false){
+                if (!buttonResult1.isPressed()) {
+                    button1Set = false;
+                    button1Hold = true;
+                }
+            }
+
+            if(button1Set == false && button1Hold == true && showNextObject == true)
+            {
+                if (buttonResult1.isPressed()) {
+                    button1Set = true;
+                    button1Hold = false;
+                    showNextObject = false;
+                }
+            }
+
+            if(button1Set == false && button1Hold == true && showNextObject == false)
+            {
+                if (buttonResult1.isPressed()) {
+                    button1Set = true;
+                    button1Hold = false;
+                    showNextObject = true;
+                }
+            }
+
+
+            if(showNextObject == true)
+            {
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        100.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFirstSegment.getTexCoords());
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFirstSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFirstSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+            }
+
+
+
+            /*Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
                     100.0f);
             Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
 
-            animateObject(modelViewMatrix);
-            /*VirtualButtonResult buttonResult2 = imageTargetResult.getVirtualButtonResult(1);
+            //animateObject(modelViewMatrix);
+            *//*VirtualButtonResult buttonResult2 = imageTargetResult.getVirtualButtonResult(1);
 
             if (buttonResult2.isPressed() == true){
                 animateObject(modelViewMatrix);
-            }*/
+            }*//*
 
 
             // First Segment
@@ -520,7 +561,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             VirtualButtonResult buttonResult4 = imageTargetResult.getVirtualButtonResult(3);
 
             if (buttonResult4.isPressed() == true){
-                animateSecondObject(modelViewMatrix);
+                //animateSecondObject(modelViewMatrix);
             }
 
 
@@ -553,31 +594,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
             GLES20.glDisableVertexAttribArray(vertexHandle);
             GLES20.glDisableVertexAttribArray(normalHandle);
-            GLES20.glDisableVertexAttribArray(textureCoordHandle);
-
-
-            //https://developer.vuforia.com/forum/qcar-api/multiple-teapots-one-image-target
-            /*modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
-
-            obj3D = [objects3D objectAtIndex:2];
-            ShaderUtils::translatePoseMatrix(10.0f, 0.0f, kObjectScale, &modelViewMatrix.data[0]);
-            ShaderUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale, &modelViewMatrix.data[0]);
-            ShaderUtils::multiplyMatrix(&qUtils.projectionMatrix.data[0], &modelViewMatrix.data[0], &modelViewProjection.data[0]);
-
-            glUseProgram(shaderProgramID);
-
-            glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.vertices);
-            glVertexAttribPointer(normalHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.normals);
-            glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.texCoords);
-
-            glEnableVertexAttribArray(vertexHandle);
-            glEnableVertexAttribArray(normalHandle);
-            glEnableVertexAttribArray(textureCoordHandle);
-
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
-            glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
-            glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);*/
+            GLES20.glDisableVertexAttribArray(textureCoordHandle);*/
             
             SampleUtils.checkGLError("VirtualButtons renderFrame");
             
