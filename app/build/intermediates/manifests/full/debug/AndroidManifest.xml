@@ -7,7 +7,6 @@
     <!--
         The application's compatibility with one or more versions of the Android
         platform.
-
         android:minSdkVersion = application's required minimum API level to run
         android:targetSdkVersion = application's targeted API level
     -->
@@ -31,7 +30,6 @@
 
     <!--
          The application requires a camera.
-
          NOTE: Any application that requests the CAMERA permission but does not
          declare any camera features with the <uses-feature> element will be
          assumed to use all camera features (auto-focus and flash). Thus, the
@@ -77,18 +75,17 @@
         android:theme="@style/SampleAppsTheme" >
 
         <!--
-          NOTE: The values in 'android:configChanges' ensure that Android will 
-          not destroy and re-create the activity when the user flips the 
-          keyboard, changes the orientation of the device, or the actual or 
-          physical screen resolution changes, but calls the Activity's 
-          onConfigurationChanged() function instead.
-
-          NOTE 2: In order to prevent automatic reactions to orientation
-          changes in addition to setting proper values for
-          'android:configChanges', you also must explicitly specify the screen
-          orientation used by the application, either by setting the attribute
-          'android:screenOrientation' or in code by calling
-          Activity.setRequestedOrientation().
+         NOTE: The values in 'android:configChanges' ensure that Android will
+         not destroy and re-create the activity when the user flips the
+         keyboard, changes the orientation of the device, or the actual or
+         physical screen resolution changes, but calls the Activity's
+         onConfigurationChanged() function instead.
+         NOTE 2: In order to prevent automatic reactions to orientation
+         changes in addition to setting proper values for
+         'android:configChanges', you also must explicitly specify the screen
+         orientation used by the application, either by setting the attribute
+         'android:screenOrientation' or in code by calling
+         Activity.setRequestedOrientation().
         -->
         <!-- Splash Screen Activity -->
         <activity

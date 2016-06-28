@@ -1,203 +1,203 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:2:1-195:12
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:2:1-192:12
 	package
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:3:5-49
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:3:11-55
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:5:5-30
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:5:11-36
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 	android:versionCode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:4:5-30
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:4:11-36
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:14:5-74
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:13:5-74
 	android:targetSdkVersion
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:14:42-71
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:13:42-71
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:14:15-41
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:13:15-41
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml
 uses-feature#0x00020000
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:18:5-78
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:17:5-78
 	android:glEsVersion
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:18:19-51
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:17:19-51
 	android:required
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:18:52-75
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:17:52-75
 supports-gl-texture#GL_OES_compressed_ETC1_RGB8_texture
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:21:5-79
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:20:5-79
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:21:26-76
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:20:26-76
 supports-gl-texture#GL_OES_compressed_paletted_texture
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:22:5-78
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:21:5-78
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:22:26-75
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:21:26-75
 uses-feature#android.hardware.camera
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:38:5-60
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:36:5-60
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:38:19-57
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:36:19-57
 uses-permission#android.permission.CAMERA
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:43:5-65
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:41:5-65
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:43:22-62
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:41:22-62
 uses-permission#android.permission.INTERNET
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:48:5-66
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:46:5-66
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:48:22-64
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:46:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:52:5-79
+	android:name
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:52:22-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:54:5-79
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:54:22-76
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:56:5-79
-	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:56:22-77
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:54:22-77
 application
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:68:5-193:19
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:66:5-190:19
 	android:label
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:70:9-41
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:68:9-41
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:72:9-40
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:70:9-40
 	android:allowBackup
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:73:9-35
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:71:9-35
 	android:icon
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:69:9-38
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:67:9-38
 	android:description
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:71:9-54
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:69:9-54
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:74:9-47
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:72:9-47
 activity#com.vuforia.samples.VuforiaSamples.ui.ActivityList.ActivitySplashScreen
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:93:10-104:21
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:90:9-101:20
 	android:screenOrientation
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:96:13-49
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:93:13-49
 	android:noHistory
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:97:13-37
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:94:13-37
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:95:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:92:13-93
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:94:13-65
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:91:13-65
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:99:13-103:29
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:96:13-100:29
 action#android.intent.action.MAIN
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:100:17-69
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:97:17-69
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:100:25-66
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:97:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:102:17-77
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:99:17-77
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:102:27-74
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:99:27-74
 activity#com.vuforia.samples.VuforiaSamples.ui.ActivityList.ActivityLauncher
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:106:9-111:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:103:9-108:20
 	android:screenOrientation
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:109:13-49
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:106:13-49
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:108:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:105:13-93
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:107:13-61
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:104:13-61
 activity#com.vuforia.samples.VuforiaSamples.ui.ActivityList.AboutScreen
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:113:10-119:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:110:9-116:20
 	android:screenOrientation
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:116:13-49
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:113:13-49
 	android:noHistory
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:117:13-37
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:114:13-37
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:115:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:112:13-93
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:114:13-56
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:111:13-56
 activity#com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:121:9-127:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:118:9-124:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:125:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:122:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:123:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:120:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:124:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:121:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:122:13-58
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:119:13-58
 activity#com.vuforia.samples.VuforiaSamples.app.TextRecognition.TextReco
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:129:9-135:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:126:9-132:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:133:12-43
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:130:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:131:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:128:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:132:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:129:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:130:13-57
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:127:13-57
 activity#com.vuforia.samples.VuforiaSamples.app.CylinderTargets.CylinderTargets
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:137:9-143:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:134:9-140:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:141:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:138:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:139:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:136:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:140:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:137:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:138:13-64
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:135:13-64
 activity#com.vuforia.samples.VuforiaSamples.app.FrameMarkers.FrameMarkers
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:145:9-151:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:142:9-148:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:149:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:146:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:147:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:144:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:148:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:145:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:146:13-58
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:143:13-58
 activity#com.vuforia.samples.VuforiaSamples.app.VirtualButtons.VirtualButtons
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:153:9-159:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:150:9-156:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:157:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:154:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:155:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:152:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:156:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:153:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:154:13-62
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:151:13-62
 activity#com.vuforia.samples.VuforiaSamples.app.UserDefinedTargets.UserDefinedTargets
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:161:9-167:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:158:9-164:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:165:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:162:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:163:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:160:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:164:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:161:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:162:13-70
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:159:13-70
 activity#com.vuforia.samples.VuforiaSamples.app.MultiTargets.MultiTargets
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:169:9-175:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:166:9-172:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:173:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:170:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:171:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:168:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:172:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:169:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:170:13-58
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:167:13-58
 activity#com.vuforia.samples.VuforiaSamples.app.CloudRecognition.CloudReco
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:177:9-183:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:174:9-180:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:181:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:178:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:179:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:176:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:180:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:177:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:178:13-59
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:175:13-59
 activity#com.vuforia.samples.VuforiaSamples.app.ObjectRecognition.ObjectTargets
-ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:185:9-191:20
+ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:182:9-188:20
 	android:launchMode
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:189:11-42
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:186:13-44
 	android:configChanges
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:187:13-93
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:184:13-93
 	android:theme
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:188:10-48
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:185:13-51
 	android:name
-		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:186:13-64
+		ADDED from C:\Development\Android\DEVELOPMENT_ROOT\vuforia-sdk-android-5-5-9\samples\State_Visualisation\app\src\main\AndroidManifest.xml:183:13-64
