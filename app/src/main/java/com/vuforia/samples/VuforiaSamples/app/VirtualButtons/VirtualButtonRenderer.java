@@ -727,32 +727,8 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             //animateSecondObject(modelViewMatrix);
             VirtualButtonResult buttonResult4 = imageTargetResult.getVirtualButtonResult(3);
             if (buttonResult4.isPressed() == true){
-                animateSecondObject(modelViewMatrix);
+                animateObject(modelViewMatrix);
             }
-
-            //https://developer.vuforia.com/forum/qcar-api/multiple-teapots-one-image-target
-            /*modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
-
-            obj3D = [objects3D objectAtIndex:2];
-            ShaderUtils::translatePoseMatrix(10.0f, 0.0f, kObjectScale, &modelViewMatrix.data[0]);
-            ShaderUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale, &modelViewMatrix.data[0]);
-            ShaderUtils::multiplyMatrix(&qUtils.projectionMatrix.data[0], &modelViewMatrix.data[0], &modelViewProjection.data[0]);
-
-            glUseProgram(shaderProgramID);
-
-            glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.vertices);
-            glVertexAttribPointer(normalHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.normals);
-            glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)obj3D.texCoords);
-
-            glEnableVertexAttribArray(vertexHandle);
-            glEnableVertexAttribArray(normalHandle);
-            glEnableVertexAttribArray(textureCoordHandle);
-
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
-            glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
-            glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);*/
-
 
             SampleUtils.checkGLError("VirtualButtons renderFrame");
 
