@@ -35,12 +35,17 @@ import com.vuforia.VirtualButtonResult;
 import com.vuforia.Vuforia;
 import com.vuforia.samples.SampleApplication.SampleApplicationSession;
 import com.vuforia.samples.SampleApplication.utils.CubeShaders;
+import com.vuforia.samples.SampleApplication.utils.FifthSegment;
+import com.vuforia.samples.SampleApplication.utils.FirstSegment;
+import com.vuforia.samples.SampleApplication.utils.FourthSegment;
 import com.vuforia.samples.SampleApplication.utils.LineShaders;
 import com.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.vuforia.samples.SampleApplication.utils.SecondSegment;
+import com.vuforia.samples.SampleApplication.utils.SeventhSegment;
+import com.vuforia.samples.SampleApplication.utils.SixthSegment;
 import com.vuforia.samples.SampleApplication.utils.Teapot;
-import com .vuforia.samples.SampleApplication.utils.FirstSegment;
 import com.vuforia.samples.SampleApplication.utils.Texture;
+import com.vuforia.samples.SampleApplication.utils.ThirdSegment;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -66,6 +71,13 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     private Teapot mTeapot = new Teapot();
     private FirstSegment mFirstSegment = new FirstSegment();
     private SecondSegment mSecondSegment = new SecondSegment();
+    private ThirdSegment mThirdSegment = new ThirdSegment();
+    private FourthSegment mFourthSegment = new FourthSegment();
+    private FifthSegment mFifthSegment = new FifthSegment();
+    private SixthSegment mSixthSegment = new SixthSegment();
+    private SeventhSegment mSeventhSegment = new SeventhSegment();
+    private Tool mTool = new Tool();
+
 
     // OpenGL ES 2.0 specific (3D model):
     private int shaderProgramID = 0;
@@ -84,9 +96,9 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     private int vbVertexHandle = 0;
 
     // Constants:
-    static private float kTeapotScale = 1.f;
-    static private float kFirstSegmentScale = 3.f;
-    static private float kSecondSegmentScale = 3.f;
+    static private float kTeapotScale = 1f;
+    //static private float kThirdSegmentScale = 1.05f;
+    static private float kSeventhSegmentScale = 0.6f;
 
     private double prevTime;
     private float rotateBallAngle;
@@ -300,7 +312,6 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 /*if (buttonResult.isPressed())
                 {
                    textureIndex = buttonIndex + 1;
-
                 }*/
 
                 Area vbArea = button.getArea();
@@ -393,7 +404,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
 
             // CHANGE
-            Matrix.translateM(modelViewMatrix, 0, -105.0f, 278.0f, 1.0f); // 105.0f, 278.0f, 3.0f
+            Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f, 1.0f); // -105.0f, 278.0f, 3.0f
             Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f); //
 
             // The image target specific result:
@@ -450,12 +461,12 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             GLES20.glDisableVertexAttribArray(textureCoordHandle);
 
             //Virtual Button3 will change the color of robot
-            VirtualButtonResult buttonResult3 = imageTargetResult.getVirtualButtonResult(2);
+            VirtualButtonResult buttonResult3 = imageTargetResult.getVirtualButtonResult(3);
 
             if(button3Set == false && button3Hold == false){
                 if (buttonResult3.isPressed()) {
                     button3Set = true;
-                    textureIndex = 0;
+                    textureIndex = 1;
                 }
             }
 
@@ -463,15 +474,6 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 if (!buttonResult3.isPressed()) {
                     button3Set = false;
                     button3Hold = true;
-                }
-            }
-
-            if(button3Set == false && button3Hold == true && showNextObject == 0)
-            {
-                if (buttonResult3.isPressed()) {
-                    button3Set = true;
-                    button3Hold = false;
-                    textureIndex = 1;
                 }
             }
 
@@ -497,16 +499,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 if (buttonResult3.isPressed()) {
                     button3Set = true;
                     button3Hold = false;
-                    textureIndex = 4;
-                }
-            }
-
-            if(button3Set == false && button3Hold == true && showNextObject == 4)
-            {
-                if (buttonResult3.isPressed()) {
-                    button3Set = true;
-                    button3Hold = false;
-                    textureIndex = 0;
+                    textureIndex = 1;
                 }
             }
 
@@ -514,6 +507,8 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             VirtualButtonResult buttonResult1 = imageTargetResult.getVirtualButtonResult(0);
             VirtualButtonResult buttonResult2 = imageTargetResult.getVirtualButtonResult(1);
 
+
+            //Neues Segment hinzufuegen
             if(button2Set == false && button2Hold == false){
                 if (buttonResult2.isPressed()) {
                     button2Set = true;
@@ -547,6 +542,51 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 }
             }
 
+            if(button2Set == false && button2Hold == true && showNextObject == 2)
+            {
+                if (buttonResult2.isPressed()) {
+                    button2Set = true;
+                    button2Hold = false;
+                    showNextObject = 3;
+                }
+            }
+            if(button2Set == false && button2Hold == true && showNextObject == 3)
+            {
+                if (buttonResult2.isPressed()) {
+                    button2Set = true;
+                    button2Hold = false;
+                    showNextObject = 4;
+                }
+            }
+
+            if(button2Set == false && button2Hold == true && showNextObject == 4)
+            {
+                if (buttonResult2.isPressed()) {
+                    button2Set = true;
+                    button2Hold = false;
+                    showNextObject = 5;
+                }
+            }
+
+            if(button2Set == false && button2Hold == true && showNextObject == 5)
+            {
+                if (buttonResult2.isPressed()) {
+                    button2Set = true;
+                    button2Hold = false;
+                    showNextObject = 6;
+                }
+            }
+
+            if(button2Set == false && button2Hold == true && showNextObject == 6)
+            {
+                if (buttonResult2.isPressed()) {
+                    button2Set = true;
+                    button2Hold = false;
+                    showNextObject = 7;
+                }
+            }
+
+            //Letztes Segment entfernen
             if(button1Set == false && button1Hold == false){
                 if (buttonResult1.isPressed()) {
                     button1Set = true;
@@ -578,15 +618,50 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 }
             }
 
-            if(button1Set == false && button1Hold == true && showNextObject > 2)
+            if(button1Set == false && button1Hold == true && showNextObject == 3)
             {
                 if (buttonResult1.isPressed()) {
                     button1Set = true;
                     button1Hold = false;
-                    showNextObject = 0;
+                    showNextObject = 2;
                 }
             }
 
+            if(button1Set == false && button1Hold == true && showNextObject == 4)
+            {
+                if (buttonResult1.isPressed()) {
+                    button1Set = true;
+                    button1Hold = false;
+                    showNextObject = 3;
+                }
+            }
+
+            if(button1Set == false && button1Hold == true && showNextObject == 5)
+            {
+                if (buttonResult1.isPressed()) {
+                    button1Set = true;
+                    button1Hold = false;
+                    showNextObject = 4;
+                }
+            }
+
+            if(button1Set == false && button1Hold == true && showNextObject == 6)
+            {
+                if (buttonResult1.isPressed()) {
+                    button1Set = true;
+                    button1Hold = false;
+                    showNextObject = 5;
+                }
+            }
+
+            if(button1Set == false && button1Hold == true && showNextObject == 7)
+            {
+                if (buttonResult1.isPressed()) {
+                    button1Set = true;
+                    button1Hold = false;
+                    showNextObject = 6;
+                }
+            }
 
             if(showNextObject == 1) {
                 assert (textureIndex < mTextures.size());
@@ -649,17 +724,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
 
                 Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
 
-                //animateObject(modelViewMatrix);
-
-                /*VirtualButtonResult buttonResult2 = imageTargetResult.getVirtualButtonResult(1);
-
-                if (buttonResult2.isPressed() == true){
-                    animateObject(modelViewMatrix);
-                }*/
-
-
-                // First Segment
-                //Matrix.scaleM(modelViewScaled, 0, kFirstSegmentScale, kFirstSegmentScale, kFirstSegmentScale);
+                // First Segment --------------------------------------------------------------------------------------
                 Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
                         .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
 
@@ -692,7 +757,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                         90.0f);
                 Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
 
-                // Second Object
+                // Second Object---------------------------------------------------------------------
                 Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
                         .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
 
@@ -718,6 +783,902 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 GLES20.glDrawElements(GLES20.GL_TRIANGLES,
                         mSecondSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
                         mSecondSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+            }
+
+            if(showNextObject == 3) {
+                assert (textureIndex < mTextures.size());
+                thisTexture = mTextures.get(textureIndex);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        100.0f);
+
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // First Segment--------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFirstSegment.getTexCoords());
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFirstSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFirstSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        90.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Second Object---------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSecondSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSecondSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSecondSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Third Object---------------------------------------------------------------------------
+                //Matrix.scaleM(modelViewScaled, 0, kThirdSegmentScale, kThirdSegmentScale, kThirdSegmentScale);
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mThirdSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mThirdSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mThirdSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+            }
+
+            if(showNextObject == 4) {
+                assert (textureIndex < mTextures.size());
+                thisTexture = mTextures.get(textureIndex);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        100.0f);
+
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // First Segment--------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFirstSegment.getTexCoords());
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFirstSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFirstSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        90.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Second Object---------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSecondSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSecondSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSecondSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Third Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mThirdSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mThirdSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mThirdSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Fourth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFourthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFourthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFourthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+            }
+            if(showNextObject == 5) {
+                assert (textureIndex < mTextures.size());
+                thisTexture = mTextures.get(textureIndex);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        100.0f);
+
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // First Segment--------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFirstSegment.getTexCoords());
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFirstSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFirstSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        90.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Second Object---------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSecondSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSecondSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSecondSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Third Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mThirdSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mThirdSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mThirdSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Fourth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFourthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFourthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFourthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Fifth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFifthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFifthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFifthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFifthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFifthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+            }
+            if(showNextObject == 6) {
+                assert (textureIndex < mTextures.size());
+                thisTexture = mTextures.get(textureIndex);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        100.0f);
+
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // First Segment--------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFirstSegment.getTexCoords());
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFirstSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFirstSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        90.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Second Object---------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSecondSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSecondSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSecondSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Third Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mThirdSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mThirdSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mThirdSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Fourth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFourthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFourthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFourthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Fifth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFifthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFifthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFifthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFifthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFifthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 12.0f,
+                        100.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Sixth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSixthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSixthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSixthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSixthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSixthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+            }
+
+            if(showNextObject == 7) {
+                assert (textureIndex < mTextures.size());
+                thisTexture = mTextures.get(textureIndex);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        110.0f);
+
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // First Segment--------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFirstSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFirstSegment.getTexCoords());
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFirstSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFirstSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        90.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Second Object---------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSecondSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSecondSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSecondSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSecondSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Third Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mThirdSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mThirdSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mThirdSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mThirdSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Fourth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFourthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFourthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFourthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFourthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        95.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Fifth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFifthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mFifthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mFifthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mFifthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mFifthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 12.0f,
+                        100.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Sixth Object---------------------------------------------------------------------------
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSixthSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSixthSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSixthSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSixthSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSixthSegment.getIndices());
+
+                GLES20.glDisableVertexAttribArray(vertexHandle);
+                GLES20.glDisableVertexAttribArray(normalHandle);
+                GLES20.glDisableVertexAttribArray(textureCoordHandle);
+
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
+                        50.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 0.0f, 1.0f, 0.0f, 0.0f);
+
+                // Seventh Object---------------------------------------------------------------------------
+                Matrix.scaleM(modelViewScaled, 0, kSeventhSegmentScale, kSeventhSegmentScale,
+                        kSeventhSegmentScale);
+                Matrix.multiplyMM(modelViewProjectionScaled, 0, vuforiaAppSession
+                        .getProjectionMatrix().getData(), 0, modelViewScaled, 0);
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(normalHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSeventhSegment.getVertices());
+                GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, mSeventhSegment.getNormals());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, mSeventhSegment.getTexCoords());
+
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        thisTexture.mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjectionScaled, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        mSeventhSegment.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        mSeventhSegment.getIndices());
 
                 GLES20.glDisableVertexAttribArray(vertexHandle);
                 GLES20.glDisableVertexAttribArray(normalHandle);
