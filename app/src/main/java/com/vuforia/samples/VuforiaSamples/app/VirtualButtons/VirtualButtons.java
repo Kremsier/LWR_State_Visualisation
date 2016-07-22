@@ -59,7 +59,11 @@ public class VirtualButtons extends Activity implements
     private static final String LOGTAG = "VirtualButtons";
     
     SampleApplicationSession vuforiaAppSession;
-    
+
+    /*private DataSet mCurrentDataset;
+    private int mCurrentDatasetSelectionIndex = 0;
+    private ArrayList<String> mDatasetStrings = new ArrayList<String>();
+    */
     // Our OpenGL view:
     private SampleApplicationGLView mGlView;
     
@@ -79,7 +83,10 @@ public class VirtualButtons extends Activity implements
     private Vector<Texture> mTextures;
     
     private DataSet dataSet = null;
-    
+
+    // Extended Tracking
+    private boolean mExtendedTracking = false;
+
     // Virtual Button runtime creation:
     private boolean updateBtns = false;
     public String virtualButtonColors[] = { "red", "blue", "yellow", "green" };
@@ -676,15 +683,59 @@ public class VirtualButtons extends Activity implements
             return false;
         }
 
+        /*if (!dataSet.load("VirtualButtons/LWR_Marker.xml",
+                STORAGE_TYPE.STORAGE_APPRESOURCE))
+        {
+            Log.d(LOGTAG, "Failed to load data set.");
+            return false;
+        }*/
+
         // Activate the data set:
         if (!objectTracker.activateDataSet(dataSet))
         {
             Log.d(LOGTAG, "Failed to activate data set.");
             return false;
         }
-        
+
+        // Extended Tracking Settings Start
+        /*
+        if (mCurrentDataset == null)
+            mCurrentDataset = objectTracker.createDataSet();
+
+        if (mCurrentDataset == null)
+            return false;
+
+        if (!mCurrentDataset.load(
+                mDatasetStrings.get(mCurrentDatasetSelectionIndex),
+                STORAGE_TYPE.STORAGE_APPRESOURCE))
+            return false;
+
+        if (!objectTracker.activateDataSet(mCurrentDataset))
+            return false;*/
+
+        int numTrackables = dataSet.getNumTrackables();
+        for (int count = 0; count < numTrackables; count++)
+        {
+            Trackable trackable = dataSet.getTrackable(count);
+            if(isExtendedTrackingActive())
+            {
+                trackable.startExtendedTracking();
+            }
+
+            String name = "Current dataset : " + trackable.getName();
+            trackable.setUserData(name);
+            Log.d(LOGTAG, "UserData:Set the following user data "
+                    + (String) trackable.getUserData());
+        }
+        // Extended Tracking Settings Stop
+
         Log.d(LOGTAG, "Successfully loaded and activated data set.");
         return true;
+    }
+
+    boolean isExtendedTrackingActive()
+    {
+        return mExtendedTracking;
     }
     
     final public static int CMD_BACK = -1;
@@ -692,6 +743,7 @@ public class VirtualButtons extends Activity implements
     final public static int CMD_BUTTON_BLUE = 2;
     final public static int CMD_BUTTON_YELLOW = 3;
     final public static int CMD_BUTTON_GREEN = 4;
+    final public static int CMD_EXTENDED_TRACKING = 5;
     
     
     // This method sets the menu's settings
@@ -703,6 +755,8 @@ public class VirtualButtons extends Activity implements
         group.addTextItem(getString(R.string.menu_back), -1);
         
         group = mSampleAppMenu.addGroup("", true);
+        group.addSelectionItem(getString(R.string.menu_extended_tracking),
+                CMD_EXTENDED_TRACKING, false);
         group.addSelectionItem(getString(R.string.menu_button_red),
             CMD_BUTTON_RED, true);
         group.addSelectionItem(getString(R.string.menu_button_blue),
@@ -711,7 +765,11 @@ public class VirtualButtons extends Activity implements
             CMD_BUTTON_YELLOW, true);
         group.addSelectionItem(getString(R.string.menu_button_green),
             CMD_BUTTON_GREEN, true);
-        
+
+        group = mSampleAppMenu
+                .addGroup(getString(R.string.menu_datasets), true);
+
+
         mSampleAppMenu.attachMenu();
     }
     
@@ -726,7 +784,7 @@ public class VirtualButtons extends Activity implements
             case CMD_BACK:
                 finish();
                 break;
-            
+
             case CMD_BUTTON_RED:
                 addButtonToToggle(0);
                 break;
@@ -742,7 +800,43 @@ public class VirtualButtons extends Activity implements
             case CMD_BUTTON_GREEN:
                 addButtonToToggle(3);
                 break;
-        
+
+            case CMD_EXTENDED_TRACKING:
+                for (int tIdx = 0; tIdx < dataSet.getNumTrackables(); tIdx++)
+                {
+                    Trackable trackable = dataSet.getTrackable(tIdx);
+
+                    if (!mExtendedTracking)
+                    {
+                        if (!trackable.startExtendedTracking())
+                        {
+                            Log.e(LOGTAG,
+                                    "Failed to start extended tracking target");
+                            result = false;
+                        } else
+                        {
+                            Log.d(LOGTAG,
+                                    "Successfully started extended tracking target");
+                        }
+                    } else
+                    {
+                        if (!trackable.stopExtendedTracking())
+                        {
+                            Log.e(LOGTAG,
+                                    "Failed to stop extended tracking target");
+                            result = false;
+                        } else
+                        {
+                            Log.d(LOGTAG,
+                                    "Successfully started extended tracking target");
+                        }
+                    }
+                }
+
+                if (result)
+                    mExtendedTracking = !mExtendedTracking;
+                break;
+
         }
         
         return result;

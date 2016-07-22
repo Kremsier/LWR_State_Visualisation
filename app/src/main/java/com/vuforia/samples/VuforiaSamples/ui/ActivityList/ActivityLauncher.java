@@ -28,7 +28,7 @@ public class ActivityLauncher extends ListActivity
     
     private String mActivities[] = { "Image Targets", "Cylinder Targets",
             "Multi Targets", "User Defined Targets", "Object Reco", "Cloud Reco", "Text Reco",
-            "Frame Markers", "Virtual Buttons"};
+            "Frame Markers", "LWR State Visualisation"};
     
     
     @Override
