@@ -214,14 +214,13 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer
             
             if (!mActivity.isExtendedTrackingActive())
             {
-                Matrix.translateM(modelViewMatrix, 0, -105.0f, 278.0f,
+                Matrix.translateM(modelViewMatrix, 0, 0.0f, 0.0f,
                     OBJECT_SCALE_FLOAT);
-                Matrix.rotateM(modelViewMatrix, 0, -90.0f, 1.0f, 0.0f, 0.0f);
                 Matrix.scaleM(modelViewMatrix, 0, OBJECT_SCALE_FLOAT,
                     OBJECT_SCALE_FLOAT, OBJECT_SCALE_FLOAT);
             } else
             {
-                Matrix.rotateM(modelViewMatrix, 0, 90.0f, 1.0f, 0.0f, 0.0f);
+                Matrix.rotateM(modelViewMatrix, 0, 90.0f, 1.0f, 0, 0);
                 Matrix.scaleM(modelViewMatrix, 0, kBuildingScale,
                     kBuildingScale, kBuildingScale);
             }
@@ -256,10 +255,9 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer
                     modelViewProjection, 0);
                 
                 // finally draw the teapot
-                /*GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
                     mTeapot.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
-                    mTeapot.getIndices());*/
-                GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mTeapot.getNumObjectVertex());
+                    mTeapot.getIndices());
                 
                 // disable the enabled arrays
                 GLES20.glDisableVertexAttribArray(vertexHandle);
